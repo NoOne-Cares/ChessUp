@@ -5,11 +5,8 @@ import { createPost } from './core/post';
 
 const app = express();
 
-// Middleware for JSON body parsing
 app.use(express.json());
-// Middleware for URL-encoded body parsing
 app.use(express.urlencoded({ extended: true }));
-// Middleware for plain text body parsing
 app.use(express.text());
 
 const router = express.Router();

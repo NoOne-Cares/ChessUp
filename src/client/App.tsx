@@ -1,11 +1,41 @@
-import { navigateTo } from '@devvit/web/client';
-import { useCounter } from './hooks/useCounter';
+// import { navigateTo } from '@devvit/web/client';
+// import { useCounter } from './hooks/useCounter';
+import NewPuzzle from './components/newPuuzzle';
+import ChessPuzzlesContainer from './components/Puzzle';
+import ChessPuzzle from './components/Puzzle';
+const puzzles: Puzzle[] = [
+  {
+    id: 'puzzle1',
+    description: 'White to move, checkmate in 2',
+    initialFEN: '8/8/8/8/8/1bq2k/1cN2Q/1N6 w - - 0 1', // example FEN
+    solutionMoves: [
+      { from: 'd2', to: 'c3' },
+      { from: 'e4', to: 'c3' },
+      { from: 'b1', to: 'd2' },
+    ],
+  },
+  {
+    id: 'puzzle2',
+    description: 'Another puzzle example',
+    initialFEN: '8/8/8/8/8/8/8/8 w - - 0 1',
+    solutionMoves: [
+      { from: 'a2', to: 'a4' },
+      { from: 'b7', to: 'b5' },
+    ],
+  },
+];
 
 export const App = () => {
-  const { count, username, loading, increment, decrement } = useCounter();
+  // const { count, username, loading, increment, decrement } = useCounter();
   return (
     <div className="flex relative flex-col justify-center items-center min-h-screen gap-4">
-      <img className="object-contain w-1/2 max-w-[250px] mx-auto" src="/snoo.png" alt="Snoo" />
+      <NewPuzzle />
+      {/* <div>
+        {puzzles.map((p) => (
+          <ChessPuzzlesContainer />
+        ))}
+      </div> */}
+      {/* <img className="object-contain w-1/2 max-w-[250px] mx-auto" src="/snoo.png" alt="Snoo" />
       <div className="flex flex-col items-center gap-2">
         <h1 className="text-2xl font-bold text-center text-gray-900 ">
           {username ? `Hey ${username} 👋` : ''}
@@ -55,7 +85,7 @@ export const App = () => {
         >
           Discord
         </button>
-      </footer>
+      </footer> */}
     </div>
   );
 };
